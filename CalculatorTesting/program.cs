@@ -1,32 +1,35 @@
-﻿
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Implementation;
 
-
-public class HelloWorld
+namespace Program
 {
-    static int Main()
+    public class ProgramClass
     {
-        Console.WriteLine("Enter the first number :");
-        string Input1 = Console.ReadLine();
-        Console.WriteLine("Enter the second number :");
-        string Input2 = Console.ReadLine();
+        static int Main()
+        {
+            Console.WriteLine("Enter the first number :");
+            string input1 = Console.ReadLine();
+            Console.WriteLine("Enter the second number :");
+            string input2 = Console.ReadLine();
 
-        ILogger LogObj = new Logger();
-        Calculator MyObj = new Calculator(LogObj);
+            ILogger logObj = new Logger();
+            Calculator myObj = new Calculator(logObj);
 
-        if (!MyObj.Validate(Input1, Input2)) return 0;
-        double Number1 = MyObj.First, Number2 = MyObj.Second;
-        Console.WriteLine(MyObj.Add(Number1, Number2));
-        Console.WriteLine(MyObj.Subtract(Number1, Number2));
-        Console.WriteLine(MyObj.Multiply(Number1, Number2));
-        Console.WriteLine(MyObj.Divide(Number1, Number2));
+            if (!myObj.Validate(input1, input2)) return 0;
+            double number1 = myObj.First, number2 = myObj.Second;
+            Console.WriteLine(myObj.Add(number1, number2));
+            Console.WriteLine(myObj.Subtract(number1, number2));
+            Console.WriteLine(myObj.Multiply(number1, number2));
+            Console.WriteLine(myObj.Divide(number1, number2));
 
-        Console.ReadLine();
-        return 0;
+            Console.ReadLine();
+            return 0;
+        }
     }
-}
 
+}
